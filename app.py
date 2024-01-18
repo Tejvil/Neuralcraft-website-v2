@@ -7,49 +7,49 @@ JOBS = [
         'id':1,
         'title':"Web Development",
         'location': 'Remote' ,
-        'enrollment_fee': 200
+        'enrollment_fee': 'Rs 200'
     },
     {
         'id':2,
         'title':"UI/UX",
         'location': 'Remote',
-        'enrollment_fee': 100
+        'enrollment_fee': 'Rs 100'
     },
     {
         'id':3,
         'title':"Data Science",
         'location': 'Remote',
-        'enrollment_fee': 200
+        'enrollment_fee': 'Rs 200'
     },
     {
         'id':4,
         'title':"Java Programming",
         'location': 'Remote',
-        'enrollment_fee': 150
+        'enrollment_fee': 'Rs 150'
     },
     {
         'id':5,
         'title':"C++ Programming",
         'location': 'Remote',
-        'enrollment_fee':100
+        'enrollment_fee':'Rs 100'
     },
     {
         'id':6,
         'title':"Python Programming",
         'location': 'Remote',
-        'enrollment_fee': 150
+        'enrollment_fee': 'Rs 150'
     },
     {
         'id':7,
         'title':"Artificial Intelligence",
         'location': 'Remote',
-        'enrollment_fee': 200
+        'enrollment_fee': 'Rs 200'
     },
     {
         'id':8,
         'title':"Machine Learning",
         'location': 'Remote',
-        'enrollment_fee': 200
+        'enrollment_fee': 'Rs 200'
     }
 ]
 
