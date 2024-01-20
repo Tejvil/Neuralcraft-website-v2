@@ -1,68 +1,19 @@
 from flask import Flask, render_template,url_for,jsonify
+from database import load_jobs_from_db
 
-app = Flask(__name__)             # app is object of class Flask
+app = Flask(__name__)
 
-JOBS = [
-    {
-        'id':1,
-        'title':"Web Development",
-        'location': 'Remote' ,
-        'enrollment_fee': 'Rs 200'
-    },
-    {
-        'id':2,
-        'title':"UI/UX",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 100'
-    },
-    {
-        'id':3,
-        'title':"Data Science",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 200'
-    },
-    {
-        'id':4,
-        'title':"Java Programming",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 150'
-    },
-    {
-        'id':5,
-        'title':"C++ Programming",
-        'location': 'Remote',
-        'enrollment_fee':'Rs 100'
-    },
-    {
-        'id':6,
-        'title':"Python Programming",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 150'
-    },
-    {
-        'id':7,
-        'title':"Artificial Intelligence",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 200'
-    },
-    {
-        'id':8,
-        'title':"Machine Learning",
-        'location': 'Remote',
-        'enrollment_fee': 'Rs 200'
-    }
-]
 
 @app.route("/")
 def hello():
-    return render_template('home.html',jobs=JOBS, company_name="Neuralcraft")
+    jobs = load_jobs_from_db()
+    return render_template('home.html',jobs=jobs, company_name="Neuralcraft")
 
 @app.route("/api/jobs")
 def list_jobs():
-    return jsonify(JOBS)
+    jobs = load_jobs_from_db()
+    return jsonify(jobs)
 
 if __name__  ==  "__main__":
     app.run(host='0.0.0.0', debug=True)
-    
-
 
