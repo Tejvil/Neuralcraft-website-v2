@@ -8,35 +8,51 @@
 </head>
 <body>
   {% include 'nav.html' %}
-  {% include 'banner.html' %}
+  <!-- {% include 'banner.html' %} -->
   <div class="container">
     <h1 class="text-center mt-2 mb-4">Internships Details </h1>
 
     <p>Your Application For Internship In <b>{{job['title']}}</b> Has Been Submitted</p>
     <b>
-      Full Name
+      First Name
     </b>
-    <div class='mb-2'>{{ application['full_name'] }}</div>
+    <div class='mb-2'>{{ application['first_name'] }}</div>
 
+    <b>
+      Last Name
+    </b>
+    <div class='mb-2'>{{ application['last_name'] }}</div>
+  
     <b>
       Email
     </b>
     <div class='mb-2'>{{ application['email'] }}</div>
   
     <b>
-      LinkedIn URl
+      D.O.B
     </b>
-    <div class='mb-2'>{{ application['linkedin'] }}</div>
+    <div class='mb-2'>{{ application['dob'] }}</div>
   
     <b>
-      Education
+      Job Role
     </b>
-    <div class='mb-2'>{{ application['education'] }}</div>
-  
+    <div class='mb-2'>{{ application['job_role'] }}</div>
     <b>
-      Resume URL
+      Address
     </b>
-    <div class='mb-2'>{{ application['resume_url'] }}</div>
+    <div class='mb-2'>{{ application['address'] }}</div>
+    <b>
+      City
+    </b>
+    <div class='mb-2'>{{ application['city'] }}</div>
+    <b>
+      Pincode
+    </b>
+    <div class='mb-2'>{{ application['pincode'] }}</div>
+    <b>
+      Resume file
+    </b>
+    <div class='mb-2'>{{ application['resume'] }}</div>
   </div>
   {% include 'footer.html' %}
 </body>
