@@ -1,7 +1,10 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect, url_for
 from database import load_jobs_from_db, load_job_from_db,add_application_to_db
+import mysql.connector, os
+
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'UPLOAD_FOLDER'
 
 
 @app.route("/")
@@ -36,6 +39,36 @@ def policy():
 @app.route('/tnc')
 def tnc():
     return render_template('tnc.html')
+
+# **********************************
+@app.route('/job/<id>/apply/upload', methods=['POST'])
+def upload_resume():
+  if 'file' not in request.files:
+              return redirect(request.url)
+
+  resume_file = request.files['file']
+
+  if resume_file.filename == '':
+              return redirect(request.url)
+
+  if resume_file:
+              # Save the file to the upload folder
+              resume_filename =os.path.join(app.config['UPLOAD_FOLDER'], resume_file.filename)
+              resume_file.save(resume_filename)
+
+              # Insert file information into the database
+              conn = mysql.connector.connect('db_connection_string')
+              cursor = conn.cursor()
+              sql = "INSERT INTO applicants (resume) VALUES (%s)"
+              with open(resume_filename, 'rb') as resume_blob:
+                  resume_data = resume_blob.read()
+                  cursor.execute(sql, (resume_data,))
+              conn.commit()
+              cursor.close()
+              conn.close()
+
+  return 'Resume uploaded successfully!'
+# **********************************
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

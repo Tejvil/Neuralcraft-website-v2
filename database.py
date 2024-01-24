@@ -32,11 +32,16 @@ def load_job_from_db(id):
 
 def add_application_to_db(job_id, data):
   with engine.connect() as conn:
-    query = text("INSERT INTO applications(job_id, full_name, email, linkedin_url, education, resume_url) VALUES(:job_id, :full_name, :email, :linkedin_url, :education, :resume_url)")
+    query = text("INSERT INTO applications(job_id, first_name, last_name, email, phone, dob, job_role, address, city, pincode, resume) VALUES(:job_id, :first_name, :last_name, :email, :phone, :dob, :job_role, :address, :city, :pincode, :resume)")
     conn.execute(query, {
         'job_id': job_id,
-        'full_name': data.get('full_name'),
+        'first_name': data.get('first_name'),
+        'last_name': data.get('last_name'),
         'email': data.get('email'),
-        'linkedin_url': data.get('linkedin_url'),
-        'education': data.get('education'),
-        'resume_url': data.get('resume_url')})
+        'phone': data.get('phone'),
+        'dob': data.get('dob'),
+        'address': data.get('address'),
+        'city': data.get('city'),
+        'pincode': data.get('pincode'),
+        'resume': data.get('resume'),
+    })

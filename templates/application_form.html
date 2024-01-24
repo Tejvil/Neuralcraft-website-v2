@@ -1,31 +1,229 @@
-<h1>Application Form</h1>
-<form action="/job/{{ job ['id']}} /apply" method='post'>
-  <div class='mb-2'>
-    <label> Full Name </label><br/>
-    <input type='text'required name='full_name' placeholder='Text'>
-  </div>
 
-  <div class='mb-2'>
-    <label> Email </label><br/>
-    <input type='email'required name='email' placeholder='Text'>
-  </div>
-  
-  <div class='mb-2'>
-    <label> LinkedIn URL </label><br/>
-    <input type='url' name='linkedin_url' placeholder='linkedin_url'>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+      }
 
-  <div class='mb-2'>
-    <label> Education </label><br/>
-    <textarea required name='education'> </textarea>
-  </div>
-  
-  <div class='mb-2'>
-    <label> Resume URL</label><br/>
-    <input type='url' name='resume_url' placeholder='resume_url'>
-  </div>
-  
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      .apply_box {
+        max-width: 600px;
+        padding: 20px;
+        background-color: white;
+        margin: 0 auto;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: rgba(46, 104, 156, 0.2) 0px 4px 16px 0px inset, rgba(8, 35, 70, 0.1) 0px 8px 32px 0px;
+      }
+
+      .title_small {
+        font-size: 20px;
+      }
+
+      .form_container {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .form_control {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+
+      input:focus {
+        outline-color: red;
+      }
+
+      .button_container {
+        display: flex;
+
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+      button {
+        background-color: rgb(0, 98, 255);
+        border: transparent solid 2px;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s ease-in;
+      }
+      .btn1 {
+        background-color: rgb(0, 119, 255);
+        border: transparent solid 2px;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s ease-in;
+      }
+      .btn1:hover {
+        background-color: #b7e5fe;
+        border: 2px solid rgb(0, 98, 255);
+        color: black;
+        transition: 0.3s ease-out;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #a5d0fb;
+        border: 2px solid rgb(0, 149, 255);
+        color: black;
+        transition: 0.3s ease-out;
+        cursor: pointer;
+      }
+      .textarea_control {
+        grid-column: 1 / span 2;
+      }
+      .textarea_control textarea {
+        width: 100%;
+      }
+
+      @media (max-width: 460px) {
+        .textarea_control {
+          grid-column: 1 / span 1;
+        }
+      } ;
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="apply_box">
+        <h1>
+          Application Form
+        </h1>
 
 
-  <input type='submit' value='submit'>
-</form>
+        <form action="/job/{{ job ['id']}} /apply" method='post'>
+
+          <div class="form_container">
+
+            <div class="form_control">
+              <label for="name"> Name </label>
+              <input
+                id="first_name"
+                required name="first_name"
+                placeholder="Enter First Name..."
+              />
+              <input
+                id="last_name"
+                required name="last_name"
+                placeholder="Enter Last Name..."
+             </div><br>
+
+
+            <div class="form_control">
+              <label for="email"> Email </label>
+              <input
+                type="email"
+                id="email"
+                required name="email"
+                placeholder="Enter Email..."
+              />
+            </div><br>
+
+
+            <div class="form_control" >
+              <label for="date"> D.O.B  </label>
+              <input value="" type="date" id="date" required name="dob" />
+            </div><br>
+
+
+            <div class="form_control">
+              <label for="job_role"> Applying for: </label>
+              <select id="job_role" required name="job_role" >
+                <option value="" disabled selected>Select Domain</option>
+                <option value="Web Developer">Web Developer</option>
+                <option value="ML">Machine Learning</option>
+                <option value="ui_ux">UI UX Designer</option>
+                <option value="python">Python Developer</option>
+                <option value="java">JAVA Developer</option>
+                <option value="cpp">C++ Developer</option>
+              </select>
+            </div><br>
+
+
+            <div class="textarea_control">
+              <label for="address"> Address </label>
+              <textarea
+                id="address"
+                required name="address"
+                row="4"
+                cols="50"
+                placeholder="Enter Address"
+              ></textarea>
+
+            </div>
+            <div class="form_control"">
+
+              <input id="city" name="city" placeholder="Enter City ..." />
+              <input
+                type="number"
+                id="pincode"
+                required name="pincode"
+                placeholder="Enter Pincode ..."
+              />
+            </div><br>
+              <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="file">Upload Resume:</label>
+                <input type="file" name="resume" id="file" >
+              </form>
+            <br>
+
+              <div id="pay">
+                <p>Payment Details:</p>
+                <p>Click the button below to make a payment:</p>
+                
+                <button class="btn1" type="button" onclick="redirectToPayment()">Make Payment</button>
+                <br>
+                <script>
+                    function redirectToPayment() {
+                        window.location.href = "https://your-payment-provider.com/payment-page";
+                    }
+                </script>
+                <input type="checkbox" id="check" required name="pay" value="pay">
+                <label for=""> Payment Completed</label><br>
+              </div>
+
+            <br>
+            <button type="submit" onclick="showPopup()" value='submit'>Submit Application</button>
+            <br>
+            <script>
+              function showPopup() {
+                alert('Application submitted successfully!');
+              }
+            </script>
+
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
