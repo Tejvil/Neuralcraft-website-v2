@@ -121,7 +121,7 @@
         </h1>
 
 
-        <form action="/job/{{ job ['id']}} /apply" method='post'>
+        <form action="/job/{{ job ['id'] }} /apply" method='post'>
 
           <div class="form_container">
 
@@ -157,19 +157,10 @@
 
 
             <div class="form_control">
-              <label for="job_role"> Applying for: </label>
-              <select id="job_role" required name="job_role" >
-                <option value="" disabled selected>Select Domain</option>
-                <option value="Web Developer">Web Developer</option>
-                <option value="ML">Machine Learning</option>
-                <option value="ui_ux">UI UX Designer</option>
-                <option value="python">Python Developer</option>
-                <option value="java">JAVA Developer</option>
-                <option value="cpp">C++ Developer</option>
-              </select>
-            </div><br>
+              <label for="job_role" > Applying for: </label>
+                <b value="job_role" id="job_role" name="job_role"> {{ job['title'] }} </b>
 
-
+              <br>
             <div class="textarea_control">
               <label for="address"> Address </label>
               <textarea
