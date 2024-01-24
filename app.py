@@ -30,5 +30,12 @@ def apply_to_job(id):
     add_application_to_db(id, data)
     return render_template('Application_submitted.html', application=data, job=job)
 
+@app.route('/policy')
+def policy():
+    return render_template('policy.html')
+@app.route('/tnc')
+def tnc():
+    return render_template('tnc.html')
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

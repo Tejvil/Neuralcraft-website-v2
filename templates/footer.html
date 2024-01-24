@@ -5,7 +5,17 @@
         <li class="nav-item"><a href="#course" class="nav-link px-2 text-body-secondary">Courses</a></li>
         <li class="nav-item"><a target="_blank" href="https://neuralcraft-innovation.onrender.com/Industries" class="nav-link px-2 text-body-secondary">Industries</a></li>
         <li class="nav-item"><a href="#about" class="nav-link px-2 text-body-secondary">About</a></li>
+        <li class="nav-item"><a href="#" id="policy-link"  class="nav-link px-2 text-body-secondary">Private Policy  </a></li>
+        <li class="nav-item"><a href="#" id="tnc-link"  class="nav-link px-2 text-body-secondary">TnC</a></li>
       </ul>
       <p class="text-center text-body-secondary">&copy; 2024,Neuralcraft Innovations </p>
     </footer>
   </div>
+<script>
+    document.getElementById('policy-link').addEventListener('click', function() {
+        window.location.href = "{{ url_for('policy') }}";
+    });
+    document.getElementById('tnc-link').addEventListener('click', function() {
+        window.location.href = "{{ url_for('tnc') }}";
+    });
+</script>
