@@ -5,7 +5,8 @@
   {% include 'bootstrap.html' %}
   <style>
         body{
-            background-color: rgb(198, 255, 255);
+            background-color: Hex #fffafa;
+            /* background-color: Hex #f5f5f5 */
         }
         
   </style>
@@ -13,10 +14,10 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    {% include 'banner.html' %}
   
-    <div class="container">
-      
+    <div class="container">       
+      {% include 'reveal.html' %}
+
         <h2 class="text-center mt-2 mb-4">Open for Internships !!! </h2>
         <div id="course">
             {% for job in jobs %}
@@ -25,23 +26,20 @@
         </div>
 
         <h2 class="text-center mt-2 mb-4">About Us</h2>
-        <div id="about" class="row" style="margin-bottom: 16px;">
-            <div class="col-md-7">
-            <p class="lead">NeuralCraft isn’t just a certified MSME and GEM SaaS company – we’re your human-centric partner in crafting digital futures.
-                 We excel in software development, delivering high-quality services that delight clients and build trust. But our passion extends beyond code.
-                  We guide businesses through strategic consulting and design thinking to unlock digital capabilities, specializing in cloud automation that
-                   grants global organizations a sustainable competitive edge.<br>
-                Choose NeuralCraft for more than just results. We offer hands-on internship opportunities through our GEM SaaS status, fostering tomorrow’s
-                 talent and enriching your team. We value collaboration and cultivate an attractive work environment where growth and innovation thrive.
-                  We bring you the latest technologies and expertise to solve your unique challenges, not just build solutions, but build partnerships that
-                   ensure your long-term success. Ready to craft your digital future? Explore our services, discover our story, and join the NeuralCraft 
-                   journey - we're excited to partner with you.
-            </p>
-            </div>
-            <div class="d-none d-md-block col-5">
-                <img src="static\people2.jpg" alt="" style="height: 320px;border-radius: 4px;" >
-            </div>
-        </div>
+      <div id="about" style="background-color: #f4f4f4; padding: 20px; border-radius: 10px; margin: 20px 0; margin-left: 50px; margin-right: 50px;">
+          <p style="font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #333;">
+              <span style="font-size: 150%; color: #007bff;">N</span>euralCraft isn’t just a certified MSME and GEM SaaS company – we’re your human-centric partner in crafting digital futures.
+              We excel in software development, delivering high-quality services that delight clients and build trust. But our passion extends beyond code.
+              We guide businesses through strategic consulting and design thinking to unlock digital capabilities, specializing in cloud automation that
+              grants global organizations a sustainable competitive edge.<br>
+              Choose NeuralCraft for more than just results. We offer hands-on internship opportunities through our GEM SaaS status, fostering tomorrow’s
+              talent and enriching your team. We value collaboration and cultivate an attractive work environment where growth and innovation thrive.
+              We bring you the latest technologies and expertise to solve your unique challenges, not just build solutions, but build partnerships that
+              ensure your long-term success. Ready to craft your digital future? Explore our services, discover our story, and join the NeuralCraft 
+              journey - we're excited to partner with you.
+          </p>
+      </div>
+
 
         <div class="text-center "> <a href="mailto:support@neuralcraft.com?subject=Questions%2FHELP%3A&body=Name%3A%3CYOUR%20NAME%20HERE%3E%0D%0A%0D%0AQuestions%2FHELP%20regarding%3A%20%3Center%20text%20here%3E" class="btn btn-primary btn-lg" >
             Contact us</a>
