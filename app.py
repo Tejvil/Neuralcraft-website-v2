@@ -12,6 +12,10 @@ def hello():
 @app.route("/")
 def reveal():
   return render_template('reveal.html')
+  
+@app.route("/")
+def effect():
+  return render_template('effect.html')
 
 @app.route("/api/jobs")
 def list_jobs():
